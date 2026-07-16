@@ -2045,6 +2045,24 @@ enum wlan_state_ctrl_str_id {
  * @num_mlo_peers: Total number of MLO peers
  * @more_peer_data: more mlo peer data in peer stats
  * @lpc_info: Local packet capture info
+<<<<<<< HEAD
+=======
+ * @is_lpc_ps_disabled: Indicate if LPC has disabled power save
+ * @combination: interface combination register to wiphy
+ * @wlan_hdd_akm_suites: Supported AKM suites for various interfaces
+ * @sta_akms: Station mode supported AKMs
+ * @ap_akms: AP mode supported AKMs
+ * @hdd_hlp_data_lock: lock to avoid race condition in handling hlp data
+ * @hdd_hlp_data_list: list to maintain hlp data packets
+ * @hlp_processing_work: work to process hlp data pkt for association
+ * @get_sta_user_notif: Get station notifier callback to handle port_id on
+ *			userspace application close/abort
+ * @usd_adapter: adapter on which USD frames to be forwarded to userspace
+ * @monitor_restore_work: work that reopens a station preserved for monitor use
+ * @monitor_restore_work_status: initialization state of monitor restore work
+ * @monitor_restore_iface: name of the preserved station interface
+ * @monitor_restore_pending: whether a preserved station needs reopening
+>>>>>>> wlan: add monitor mode and direct packet injection
  */
 struct hdd_context {
 	struct wlan_objmgr_psoc *psoc;
@@ -2328,6 +2346,12 @@ struct hdd_context {
 #endif
 #ifdef WLAN_FEATURE_LOCAL_PKT_CAPTURE
 	struct hdd_lpc_info lpc_info;
+#endif
+#ifdef FEATURE_FRAME_INJECTION_SUPPORT
+	qdf_work_t monitor_restore_work;
+	enum hdd_work_status monitor_restore_work_status;
+	char monitor_restore_iface[IFNAMSIZ];
+	bool monitor_restore_pending;
 #endif
 };
 
