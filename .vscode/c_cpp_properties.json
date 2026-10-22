@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Poco F6 Kernel",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/../android_kernel_xiaomi_sm8635-kernel/include",
+                "${workspaceFolder}/../android_kernel_xiaomi_sm8635-kernel/include/uapi",
+                "${workspaceFolder}/../android_kernel_xiaomi_sm8635-kernel/arch/arm64/include",
+                "${workspaceFolder}/../android_kernel_xiaomi_sm8635-kernel/arch/arm64/include/uapi"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}
